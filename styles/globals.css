@@ -1,0 +1,59 @@
+/* Set primary color to teal */
+:root {
+    --primary-color: #38B2AC;
+  }
+  
+  /* Set body background color to white */
+  body {
+    background-color: #fff;
+  }
+  
+  /* Set font color to black */
+  body, input, select, button, label {
+    color: #000;
+  }
+  
+  /* Style links to use teal color */
+  a {
+    color: var(--primary-color);
+  }
+  
+  /* Style the teal color button */
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  
+  /* Style the teal color button on hover */
+  button:hover {
+    background-color: #2C7A7B;
+  }
+  
+  /* Style form inputs */
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  select {
+    border-radius: 0.25rem;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Style form labels */
+  label {
+    font-weight: 600;
+  }
+  
+  /* Style form controls */
+  .form-control {
+    margin-bottom: 1rem;
+  }
+  
