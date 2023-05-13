@@ -3,11 +3,11 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import {db,auth} from '../firebase'
 
 export const updateProfile = async(name, image, userId)=>{
-    const storage = getStorage();
-    const storageRef = ref(storage, image.name);
     let url = '';
     // 'file' comes from the Blob or File API
     if(image !== null){
+        const storage = getStorage();
+        const storageRef = ref(storage, image.name);
         await uploadBytes(storageRef, image).then(async (snapshot) => {
             url = await getDownloadURL(snapshot.ref);
         })
@@ -18,7 +18,7 @@ export const updateProfile = async(name, image, userId)=>{
     const prevData = docSnap.data();
     prevData['name'] = name;
        
-    prevData['profileURL'] = url === ''? prevData['profileURL'] : url;
+    prevData['profileURL'] = image === null? prevData['profileURL'] : url;
     await setDoc(prevObj, prevData);
 
 }
