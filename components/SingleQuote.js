@@ -37,7 +37,7 @@ const SingleQuote = ({quote}) => {
         quote: quote.quote,
         authorName: quote.authorName
       })
-    }, [user])
+    }, [user, quote])
     
 
     const handleOnSave = async () => {

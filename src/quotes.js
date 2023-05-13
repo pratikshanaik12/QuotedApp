@@ -4,14 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Add Quote
 export const addQuote = async ({ quote, authorName }) => {
-  if (!quote || quote.length==0){
-    throw 'Input Error'
-  }
-  const re = /^[A-Z][a-z]/;
-
-  if (!authorName || authorName.length==0 || !re.test(authorName)){
-    throw 'Input Error'
-  }
   const quoteData = {
     quoteId: uuidv4(),
     quote: quote,
@@ -39,6 +31,7 @@ export const addQuote = async ({ quote, authorName }) => {
 export const deleteQuote = async(
   quoteId, userId
 )=>{
+
 	const prevObj = doc(db, "users", userId);
 	const docSnap = await getDoc(prevObj);
 	const prevData = docSnap.data();
@@ -64,7 +57,10 @@ export const getAllQuotes = async(
       allQuotes.push(obj)
     }
   });
-  return allQuotes;
+  const allQuotesN = allQuotes.sort((a,b) =>{
+    return b.timeStamp-a.timeStamp;
+  })
+  return allQuotesN;
 }
 
 export const editQuote = async(
