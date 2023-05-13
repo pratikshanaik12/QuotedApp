@@ -13,7 +13,7 @@ export default function Login() {
         <Heading as="h1" mb={4}>Login</Heading>
         <LoginForm />
         <Box mt={4} display={'flex'}>
-          Don't have an account?{'  '}
+          Do not have an account?
           <Text color="blue" pl={2}>
             <Link href="/signup" >Sign up</Link>
           </Text>
